@@ -1,0 +1,92 @@
+
+body{
+    justify-content: center;
+    text-align: center;
+    border-radius: 30px;
+    
+}
+form{
+    background-color: black;
+}
+
+h2{
+    text-align: center;
+    margin-bottom: 40px;
+}
+h3{
+    text-align: center;
+    margin-top: 13.5px;
+    margin-bottom: 13.5px;
+}
+h4{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 13.5px;
+    color: aliceblue;
+}
+embed{
+    text-align: center;
+    margin-top: 10px;
+    
+}
+
+.canvas-overlay{
+    position: absolute;
+    height: 33rem;
+    width: 40%;
+    object-fit: contain;
+    
+}
+ .input-image {
+    height: 33rem;
+    width: 40%;
+    object-fit: contain;
+} 
+.wrapper-sections {
+display: grid;
+height: 100%;
+grid-template-columns: 1fr;
+}
+
+.letrita{
+    color: white;
+    font-size: 16px;
+
+}
+.letrita_1{
+    color: white;
+    font-size: 16px;
+    text-align: right;
+}
+
+.bgDark {
+    background: #212F3C;
+    border: 2px solid black;
+    color: white;
+}
+
+.btns{
+    border: blue;
+    font-size: 12px;
+    color: white;
+    border-radius: 20px;
+    background-color: black;
+}
+/* footer {
+    padding: 80px 0;
+    text-align: center;
+    color: var(--white-color);
+}
+
+footer a {
+    color: var(--white-color);
+}
+
+footer a:hover {
+    color: var(--white-color);
+}
+
+footer .list-inline .list-inline-item {
+    padding: 10px 15px;
+}  */
+

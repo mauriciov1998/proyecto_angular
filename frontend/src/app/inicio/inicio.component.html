@@ -1,0 +1,234 @@
+<!-- 
+
+<nav class="navbar navbar-dark bg-primary">
+  <button class="buton_salir" type="button" (click)="ir_atras()">Salir</button>
+</nav>
+<div class="container">
+  <form id="contact">
+    <h3 style="text-align: center;">Registrar Usuarios</h3>
+    <fieldset>
+
+      <input placeholder="Nombre" type="text" tabindex="1" required autofocus [(ngModel)]="usuarios.nombre"
+        name="nombre" class="form-control" id="">
+    </fieldset>
+    <fieldset>
+      <input placeholder="Email" type="email" tabindex="2" required [(ngModel)]="usuarios.email" name="email"
+        class="form-control" id="">
+    </fieldset>
+    <fieldset>
+      <input placeholder="contraseña" type="text" tabindex="3" required [(ngModel)]="usuarios.password" name="password"
+        class="form-control" id="">
+    </fieldset>
+    <fieldset>
+      <input placeholder="Rol" type="text" tabindex="4" required [(ngModel)]="usuarios.rol" name="rol"
+        class="form-control" id="id_rol">
+    </fieldset>
+    <fieldset>
+      <button name="registrar" type="submit" data-submit="...Sending" (click)="agregarUsuario()">registrar
+        usuario</button>
+    </fieldset>
+  </form>
+
+
+</div>
+<div class="container_2">
+  <table class="table" style="text-align: center;">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Contraseña</th>
+        <th scope="col">email</th>
+        <th scope="col">rol</th>
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of listadousuarios; let i=index">
+        <td>{{i+1}}</td>
+        <td>{{user.nombre}}</td>
+        <td>{{user.password}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.rol}}</td>
+        <td><button (click)="eliminarUsuario(user.id_usario)" type="button" class="btn btn-success">Eliminar</button>
+        </td>
+        <td><button (click)="editarUsuario(user.id_usario)" type="button" class="btn btn-success">Editar</button></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div> -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<div id="wrapper">
+  <div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="nav-divider" style="color: azure;">
+        USUARIOS
+      </li>
+      <li>
+        <a id="op1" (click)="seleccion1()">Mostrar Usuarios del sistema</a>
+      </li>
+      <li>
+        <a id="op2" (click)="seleccion2()">Registrar nuevo usuario</a>
+      </li>
+      <!-- <li>
+        <a id="op6" (click)="seleccion6()">ir al reconocmiento</a>
+      </li> -->
+      <li>
+        <a (click)="outLogin()">Cerrar Sesion</a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1>Adminstracion</h1>
+          <br>
+          <div *ngIf="opcion == 2">
+            <div class="container">
+              <div class="col-sm-6">
+
+                <form [formGroup]="registroForm" class="was-validated">
+                  <div class="mb-3">
+                    <p class=" text-center">Registro de usuarios</p>
+                    <label class="form-label">Nombre</label>
+                    <input [(ngModel)]="usuarios.nombre" type="text" class="form-control" formControlName="name"
+                      minlength="3" name="name" maxlength="15" required>
+                    <div class="alert-danger" *ngIf="name && name.invalid  && (name.dirty || name.touched)">
+                      <div class="container-error-message" *ngIf="name.errors?.['pattern']">
+                        El nombre solo puede tener letras
+                      </div>
+                      <div class="container-error-message" *ngIf="name.errors?.['required']">
+                        El nombre es requerido
+                      </div>
+                      <div class="container-error-message" *ngIf="name.errors?.['minlength']">
+                        El nombre debe tener al menos 3 letras
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Correo</label>
+                    <input [(ngModel)]="usuarios.email" type="email" class="form-control" formControlName="email"
+                      name="email" required>
+                    <div class="alert-danger" *ngIf="email && email.invalid  && (email.dirty || email.touched)">
+                      <div class="container-error-message" *ngIf="email.errors?.['pattern']">
+                        Ingrese un correo valido (@ y .com)
+                      </div>
+                      <div class="container-error-message" *ngIf="email.errors?.['required']">
+                        El correo es requerido
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Rol</label>
+                    <input [(ngModel)]="usuarios.rol" type="text" class="form-control" formControlName="name"
+                      minlength="3" name="name" maxlength="15" required>
+                    <div class="alert-danger" *ngIf="name && name.invalid  && (name.dirty || name.touched)">
+                      <div class="container-error-message" *ngIf="name.errors?.['pattern']">
+                        El rol solo puede tener letras
+                      </div>
+                      <div class="container-error-message" *ngIf="name.errors?.['required']">
+                        El rol es requerido
+                      </div>
+                      <div class="container-error-message" *ngIf="name.errors?.['minlength']">
+                        El rol debe tener al menos 3 letras
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Contraseña</label>
+                    <input [(ngModel)]="usuarios.password" type="password" class="form-control"
+                      formControlName="password" name="password" required minlength="5" maxlength="15">
+                    <div class="alert-danger"
+                      *ngIf="password && password.invalid  && (password.dirty || password.touched)">
+                      <div class="container-error-message" *ngIf="password.errors?.['pattern']">
+                        La contraseña debe tener: <br>
+                        - Al menos una letra mayúscula<br>
+                        - Al menos una letra minucula<br>
+                        - Al menos un dígito<br>
+                        - No espacios en blanco<br>
+                        - Al menos 1 caracter especial<br>
+                      </div>
+                      <div class="container-error-message" *ngIf="password.errors?.['required']">
+                        La contraseña es requerida
+                      </div>
+                      <div class="container-error-message" *ngIf="password.errors?.['minlength']">
+                        La contraseña debe tener al menos 5 caracteres
+                      </div>
+                      <div class="container-error-message" *ngIf="password.errors?.['maxlength']">
+                        La contraseña debe tener maximo 15 caracteres
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Confirmar Contraseña</label>
+                    <input [(ngModel)]="confirmar_password" type="password" class="form-control"
+                      formControlName="password" name="password" required minlength="5" maxlength="15">
+                    <div class="alert-danger"
+                      *ngIf="password && password.invalid  && (password.dirty || password.touched)">
+                      <div class="container-error-message" *ngIf="password.errors?.['pattern']">
+                        La contraseña debe tener: <br>
+                        - Al menos una letra mayúscula<br>
+                        - Al menos una letra minucula<br>
+                        - Al menos un dígito<br>
+                        - No espacios en blanco<br>
+                        - Al menos 1 caracter especial<br>
+                      </div>
+                      <div class="container-error-message" *ngIf="password.errors?.['required']">
+                        La contraseña es requerida
+                      </div>
+                      <div class="container-error-message" *ngIf="password.errors?.['minlength']">
+                        La contraseña debe tener al menos 5 caracteres
+                      </div>
+                      <div class="container-error-message" *ngIf="password.errors?.['maxlength']">
+                        La contraseña debe tener maximo 15 caracteres
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-grid gap-2 col-6 mx-auto">
+                    <button (click)="agregar()" class="btn btn-primary ">Agregar</button>
+                  </div>
+                </form>
+              </div>
+              <br>
+            </div>
+          </div>
+          <div *ngIf="opcion == 1">
+            <table class="table" style="width: 100%; align-items: center;margin-left:5%">
+              <thead class="table table-dark">
+                <tr>
+                  <th class="letrita_1" scope="col" >#</th>
+                  <th class="letrita_1" scope="col" >Nombre</th>
+                  <th class="letrita_1" scope="col">email</th>
+                  <th class="letrita_1" scope="col">rol</th>
+                  <th class="letrita_1" scope="col"></th>
+                  <th class="letrita_1" scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of listadousuarios; let i=index">
+                  <td>{{i+1}}</td>
+                  <td >{{user.nombre}}</td>
+                  <td>{{user.email}}</td>
+                  <td>{{user.rol}}</td>
+                  <td><button (click)="eliminarUsuario(user.id_usario)" type="button"
+                      class="btn btn-success">Eliminar</button>
+                  </td>
+                  <td><button (click)="editarUsuario(user.id_usario)" type="button"
+                      class="btn btn-success">Editar</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div *ngIf="opcion == 6">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,168 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<div id="wrapper">
+  <div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="nav-divider" style="color: azure;">
+        USUARIOS
+      </li>
+      <li>
+        <a (click)="ir_atras()">Volver</a>
+        <a (click)="outLogin()">Cerrar Sesion</a>
+      </li>
+    </ul>
+  </div>
+
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1>Modificar datos usuario</h1>
+        <br>
+          <form id="contact">
+            <h3 style="text-align: center;">Modificar datos del Usuarios</h3>
+            <fieldset>
+
+              <input placeholder="Nombre" type="text" tabindex="1" required autofocus [(ngModel)]="usuarios.nombre"
+                name="nombre" class="form-control" id="">
+            </fieldset>
+            <fieldset>
+              <input placeholder="Email" type="email" tabindex="2" required [(ngModel)]="usuarios.email" name="email"
+                class="form-control" id="">
+            </fieldset>
+            <fieldset>
+              <input placeholder="contraseña" type="text" tabindex="3" required  name="password"
+                class="form-control" id="">
+            </fieldset>
+            <fieldset>
+              <input placeholder="Rol" type="text" tabindex="4" required [(ngModel)]="usuarios.rol" name="rol"
+                class="form-control" id="id_rol">
+            </fieldset>
+            <fieldset>
+              <button name="registrar" type="submit" data-submit="...Sending" class="btn btn-primary"
+                (click)="guardarcambios()">Guardar Usuario</button>
+            </fieldset>
+          </form>
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- VERIFICAR PIOR QUE NO FUNCIONA CON EL NUEVO FORMULARIO -->
+<!-- <div class="container">
+
+  <div class="row">
+    <div class="col-sm-6">
+
+      <form [formGroup]="registroForm" class="">
+        <div class="mb-3">
+          <p>Modificar Datos del Administrador</p>
+          <label class="form-label">Nombre</label>
+          <input [(ngModel)]="usuarios.nombre" type="text" class="form-control" formControlName="name" minlength="3"
+            name="name" maxlength="15" required>
+          <div class="alert-danger" *ngIf="name && name.invalid  && (name.dirty || name.touched)">
+            <div class="container-error-message" *ngIf="name.errors?.['pattern']">
+
+              El nombre solo puede tener letras
+            </div>
+            <div class="container-error-message" *ngIf="name.errors?.['required']">
+
+              El nombre es requerido
+            </div>
+            <div class="container-error-message" *ngIf="name.errors?.['minlength']">
+
+              El nombre debe tener almenos 3 letras
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Rol</label>
+          <input [(ngModel)]="usuarios.rol" type="text" class="form-control" name="nameus" formControlName="nameus"
+            minlength="5" name="nameus" maxlength="15" required>
+          <div class="alert-danger" *ngIf="nameus && nameus.invalid  && (nameus.dirty || nameus.touched)">
+            <div class="container-error-message" *ngIf="nameus.errors?.['pattern']">
+              El nombre de usuario solo puede tener letras y numeros
+            </div>
+            <div class="container-error-message" *ngIf="nameus.errors?.['required']">
+              El nombre de usuario es requerido
+            </div>
+            <div class="container-error-message" *ngIf="nameus.errors?.['minlength']">
+              El nombre de usuario debe tener almenos 5 letras
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Correo</label>
+          <input [(ngModel)]="usuarios.correo" type="email" class="form-control" formControlName="email" name="email"
+            required>
+          <div class="alert-danger" *ngIf="email && email.invalid  && (email.dirty || email.touched)">
+            <div class="container-error-message" *ngIf="email.errors?.['pattern']">
+              Ingrese un correo valido (@ y .com)
+            </div>
+            <div class="container-error-message" *ngIf="email.errors?.['required']">
+              El correo es requerido
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Contraseña</label>
+          <input [(ngModel)]="usuarios.password" type="password" class="form-control" formControlName="password"
+            name="password" required minlength="5" maxlength="15">
+          <div class="alert-danger" *ngIf="password && password.invalid  && (password.dirty || password.touched)">
+            <div class="container-error-message" *ngIf="password.errors?.['pattern']">
+              La contraseña debe tener: <br>
+              - Al menos una letra mayúscula<br>
+              - Al menos una letra minucula<br>
+              - Al menos un dígito<br>
+              - No espacios en blanco<br>
+              - Al menos 1 caracter especial<br>
+            </div>
+            <div class="container-error-message" *ngIf="password.errors?.['required']">
+              La contraseña es requerida
+            </div>
+            <div class="container-error-message" *ngIf="password.errors?.['minlength']">
+              La contraseña debe tener al menos 5 caracteres
+            </div>
+            <div class="container-error-message" *ngIf="password.errors?.['maxlength']">
+              La contraseña debe tener maximo 15 caracteres
+            </div>
+          </div>
+        </div>
+
+
+
+      </form>
+    </div>
+
+ <div class="col-sm-6">
+      <h1>Datos del Administrador</h1>
+      <form>
+        <div class="mb-3">
+          <label style="color:blue;">Nombre:</label><label class="form-label">{{usuarios.nombre}}</label>
+        </div>
+
+        <div class="mb-3">
+          <label style="color:blue;" for="">email: </label><label class="form-label">{{usuarios.email}}</label>
+        </div>
+
+        <div class="mb-3">
+          <label style="color:blue;" for="">rol:</label><label class="form-label">{{usuarios.rol}}</label>
+        </div>
+
+        <div class="mb-3">
+          <label style="color:blue;" for="">password: </label><label class="form-label">{{usuarios.password}}</label>
+        </div>
+      </form>
+    </div> -->
+
+  <!-- </div>
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <button (click)="guardarcambios()" class="btn btn-primary ">Guardar Cambios</button>
+  </div> --> 

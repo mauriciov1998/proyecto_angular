@@ -1,0 +1,109 @@
+<div>
+  <nav class="navbar navbar-dark bg-primary">
+    <div><button  class="btns" (click)="ir_atras()">
+      <i class="fa-solid fa-circle-arrow-left"></i>Volver</button>
+      <button  class="btns" (click)="cerrarSesion()">
+        <i class="fa-solid fa-person-running"></i>
+        cerrar Sesion</button>
+        <button  class="btns" (click)="reloadCurrentPage()">
+          <i class="fa-solid fa-arrows-rotate"></i>
+          Eliminar Caches</button></div>
+  </nav>
+</div>
+
+<body>
+  <div>
+
+  </div>
+  <form>
+    <div class="wrapper-sections">
+      <div style="padding: 15px;background-color: black;">
+        <div>
+          <h4>Seleccion archivo JPG o PNG</h4>
+          <input class="form-control" type="file" name="pdfFile" id="pdfFile" (change)="onChange($event)"
+            style="width: 30%; align-items: center;margin-left:35%">
+          <embed id="vistaPrevia" type="application/pdf" width="500" height="400">
+        </div>
+      </div>
+      <div>
+        <canvas #outputImage class="canvas-overlay" id="vistaPrevia" type="application/pdf">
+        </canvas>
+        <img #inputImage id="bird-image" class="input-image">
+      </div>
+      <div style="padding: 15px;">
+        <form style="width: 40%; align-items: center;margin-left:30%">
+          <button style=" margin-right:400px;" (click)="enviardata_imagen_subida()" class="btn btn-primary"> Extraer
+            Datos </button><br />
+          <button style=" margin-left:380px;margin-top:-65px;" (click)="guardar_datos_cabecera()"
+            class="btn btn-primary"> Guardar Datos </button><br />
+          <label for="" class="form-label" class="letrita"><b style="margin-left:-380px;">Nombre Empresa</b></label>
+          <input [(ngModel)]="datos_factura.nombre_empresa" type="nombre_empresa" name="nombre_empresa"
+            class="form-control form-control-sm" id="">
+          <label class="letrita"> <b style="margin-left:-440px;">Direccion</b></label>
+          <input [(ngModel)]="datos_factura.direccion_empresa" type="direccion_empresa" name="direccion_empresa"
+            class="form-control form-control-sm" id="">
+
+          <label class="letrita"><b style="margin-left:-440px;">Telefono</b></label>
+          <input [(ngModel)]="datos_factura.telefono_empresa" type="telefono_empresa" name="telefono_empresa"
+            class="form-control form-control-sm" id="">
+
+          <label for="" class="letrita"><b style="margin-left:-410px;">Fecha Literal</b></label>
+          <input [(ngModel)]="datos_factura.lugar_fecha" type="lugar_fecha" name="lugar_fecha"
+            class="form-control form-control-sm" id="">
+
+          <label for="" class="letrita"><b style="margin-left:-490px;">Nit</b></label>
+          <input [(ngModel)]="datos_factura.nit" type="nit" name="nit" class="form-control form-control-sm" id="">
+
+          <label class="letrita"><b style="margin-left:-400px;">Nombre Cliente</b></label>
+          <input [(ngModel)]="datos_factura.cliente_archivo" type="cliente_archivo" name="cliente_archivo"
+            class="form-control form-control-sm" id="">
+
+          <label for="" class="letrita"><b style="margin-left:-420px;">Valor Literal</b></label>
+          <input [(ngModel)]="datos_factura.valor_total_literal" type="valor_total_literal" name="valor_total_literal"
+            class="form-control form-control-sm" id="">
+
+          <label for="" class="letrita"><b style="margin-left:-420px;">Total Factura</b></label>
+          <input [(ngModel)]="datos_factura.total_archivo" type="total_archivo" name="total_archivo"
+            class="form-control form-control-sm" id="">
+
+          <label for="" class="letrita"><b style="margin-left:-400px;">Tipo de archivo</b></label>
+          <input [(ngModel)]="datos_factura.tipo_archivo" type="tipo_archivo" name="tipo_archivo"
+            class="form-control form-control-sm" id="">
+
+        </form>
+        <form>
+          <br />
+          <button style=" margin-right:30px;" (click)="enviardatatable()" class="btn btn-primary"> Extraer Contenido de
+            la Tabla </button>
+          <!-- <button style=" margin-right:400px;" (click)="guardar_lineas_datos_cabecera()" class="btn btn-primary"> Guardar Contenido de la Tabla
+          </button><br /> -->
+
+          <table class="table" style="width: 50%; align-items: center;margin-left:25%">
+            <thead>
+              <tr>
+                <th class="letrita_1" scope="col">Item</th>
+                <th class="letrita_1" scope="col">Codigo</th>
+                <th class="letrita_1" scope="col">Concepto</th>
+                <th class="letrita_1" scope="col">udm</th>
+                <th class="letrita_1" scope="col">cantidad</th>
+                <th class="letrita_1" scope="col">precio</th>
+                <th class="letrita_1" scope="col">subtotal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let valor of contenido_tabla">
+                <td class="letrita">{{valor.value.item.valueData.text}}</td>
+                <td class="letrita">{{valor.value.codigo_producto.valueData.text}}</td>
+                <td class="letrita">{{valor.value.detalle_producto.valueData.text}}</td>
+                <td class="letrita">{{valor.value.udm.valueData.text}}</td>
+                <td class="letrita">{{valor.value.cantidad_producto.valueData.text}}</td>
+                <td class="letrita">{{valor.value.precio_initario.valueData.text}}</td>
+                <td class="letrita">{{valor.value.total_producto.valueData.text}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
+    </div>
+  </form>
+</body>

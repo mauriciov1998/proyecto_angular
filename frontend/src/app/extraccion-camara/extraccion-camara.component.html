@@ -1,0 +1,140 @@
+<!-- <!DOCTYPE html>
+<html lang="es">
+
+
+<body>
+  <h3><b>BIENVENIDO AL MODULO DE RECONOCIMIENTO Y EXTRACCION DE LA INFORMACION</b></h3>
+  <div class="wrapper-sections">
+  
+  </div>
+  
+    <div style="padding: 15px;width: 50%; float:right;">
+      <form>
+        <button (click)="enviardatatable_captura()" class="btn btn-primary"> Extraer Contenido de la Tabla
+          Captura</button><br />
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Item</th>
+              <th scope="col">Codigo</th>
+              <th scope="col">Concepto</th>
+              <th scope="col">udm</th>
+              <th scope="col">cantidad</th>
+              <th scope="col">precio</th>
+              <th scope="col">subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let valor of tabla_contenido">
+              <td>{{valor.value.nro_item_valor.valueData.text}}</td>
+              <td>{{valor.value.codigo_producto_valor.valueData.text}}</td>
+              <td>{{valor.value.concepto_producto_valor.valueData.text}}</td>
+              <td>{{valor.value.unidad_medidad_valor.valueData.text}}</td>
+              <td>{{valor.value.cantidad_producto_valor.valueData.text}}</td>
+              <td>{{valor.value.price_unit_valor.valueData.text}}</td>
+              <td>{{valor.value.total_valor_producto.valueData.text}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html> -->
+<nav class="navbar navbar-dark bg-primary">
+  <button class="btn btn-dark" (click)="ir_atras()">Volver</button>
+  <button class="btn btn-dark" (click)="reloadCurrentPage()">
+    Recargar/Eliminar</button>
+  <button class="btn btn-dark" (click)="cerrarSesion()">
+    cerrar Sesion</button>
+</nav>
+
+<body>
+  <div class="wrapper-sections">
+    <div style="padding: 15px;background-color: black;">
+      <div style="width: 100%;">
+        <h4>Cargue una imagen</h4>
+        <button id="captura" class="btn btn-primary">Usar la camara web</button>
+        <button onclick="take_snapshot()" (click)="onChanged($event)" class="btn btn-primary"
+          style="margin-left: 80px;">Capturar Imagen</button>
+        <div style="margin-top: 50px;" id="camera"></div>
+      </div>
+    </div>
+    <div>
+      <canvas #outputImage class="canvas-overlay" type="application/pdf">
+      </canvas>
+      <img #inputImage id="bird-image_1" class="input-image" (load)="algoencamra($event)">
+    </div>
+    <div style="padding: 15px;">
+      <form>
+        <button (click)="enviardata_base64()" class="btn btn-primary"> Extraer Datos Captura</button><br />
+        <button (click)="guardar_datos_cabecera()" class="btn btn-primary"> Guardar Datos </button><br />
+        <label for="" class="form-label" class="letrita">Nombre Empresa</label>
+        <input [(ngModel)]="datos_factura.nombre_empresa" type="nombre_empresa" name="nombre_empresa"
+          class="form-control" id="">
+        <label class="form-label" class="letrita">Direccion</label>
+        <input [(ngModel)]="datos_factura.direccion_empresa" type="direccion_empresa" name="direccion_empresa"
+          class="form-control" id="direccion_empresa">
+
+        <label class="form-label" class="letrita">telefono</label>
+        <input [(ngModel)]="datos_factura.telefono_empresa" type="telefono_empresa" name="telefono_empresa"
+          class="form-control" id="telefono_empresa">
+
+        <label for="" class="form-label" class="letrita">Fecha Literal</label>
+        <input [(ngModel)]="datos_factura.lugar_fecha" type="lugar_fecha" name="lugar_fecha" class="form-control"
+          id="lugar_fecha">
+
+        <label for="" class="form-label" class="letrita">Nit</label>
+        <input [(ngModel)]="datos_factura.nit" type="nit" name="nit" class="form-control" id="">
+
+        <label class="form-label" class="letrita">Nombre Cliente</label>
+        <input [(ngModel)]="datos_factura.cliente_archivo" type="cliente_archivo" name="cliente_archivo"
+          class="form-control" id="cliente_archivo" size="12" width="80" style="font-family: Arial; font-size: 8pt; ">
+        <label for="" class="form-label" class="letrita">Valor Literal</label>
+        <input [(ngModel)]="datos_factura.valor_total_literal" type="valor_total_literal" name="valor_total_literal"
+          class="form-control" id="valor_total_literal">
+
+        <label for="" class="form-label" class="letrita">Total Factura</label>
+        <input [(ngModel)]="datos_factura.total_archivo" type="total_archivo" name="total_archivo" class="form-control"
+          id="total_archivo">
+
+      </form>
+      <form>
+        <button (click)="enviardatatable_captura()" class="btn btn-primary"> Extraer Contenido de la Tabla </button><br />
+        <table class="table" style="max-width: 100%;">
+          <thead>
+            <tr>
+              <th class="letrita_1" scope="col">Item</th>
+              <th class="letrita_1" scope="col">Codigo</th>
+              <th class="letrita_1" scope="col">Concepto</th>
+              <th class="letrita_1" scope="col">udm</th>
+              <th class="letrita_1" scope="col">cantidad</th>
+              <th class="letrita_1" scope="col">precio</th>
+              <th class="letrita_1" scope="col">subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let valor of contenido_tabla">
+              <td class="letrita">{{valor.value.item.valueData.text}}</td>
+              <td class="letrita">{{valor.value.codigo_producto.valueData.text}}</td>
+              <td class="letrita">{{valor.value.detalle_producto.valueData.text}}</td>
+              <td class="letrita">{{valor.value.udm.valueData.text}}</td>
+              <td class="letrita">{{valor.value.cantidad_producto.valueData.text}}</td>
+              <td class="letrita">{{valor.value.precio_initario.valueData.text}}</td>
+              <td class="letrita">{{valor.value.total_producto.valueData.text}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+</body>
+<footer class="bgDark ">
+  <div class="container ">
+    <a href=" ">Proyecto de Grado </a>
+
+    <small>©2021 Todos los derechos reservados. Creado por <a href="# " class="font-weight-bold " target="_blank "
+        rel="noopener ">Mauricio Vargas Tudela</a></small>
+  </div>
+</footer>

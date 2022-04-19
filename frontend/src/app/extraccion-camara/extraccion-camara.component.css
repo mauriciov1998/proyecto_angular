@@ -1,0 +1,91 @@
+
+
+
+
+body{
+    background-color: rgb(8, 7, 19);
+}
+h2{
+    text-align: center;
+    margin-bottom: 40px;
+}
+h3{
+    text-align: center;
+    margin-top: 13.5px;
+    margin-bottom: 13.5px;
+}
+h4{
+    text-align: center;
+    margin-top: -8px;
+    margin-bottom: 13.5px;
+    color: aliceblue;
+}
+embed{
+    text-align: center;
+    margin-top: 10px;
+    position: absolute;
+    width: 750;
+    height: 350px;
+}
+
+.canvas-overlay{
+    position: absolute;
+    height: 30rem;
+    width: 33%;
+    object-fit: contain;
+    
+}
+
+.input-image {
+    height: 30rem;
+    width: 100%;
+    object-fit: contain;
+}
+
+.wrapper-sections {
+display: grid;
+height: 100%;
+grid-template-columns: 1fr 1fr 1fr;
+}
+.bgDark {
+    background: #212F3C;
+    border: 2px solid black;
+    color: white;
+}
+
+footer {
+    padding: 80px 0;
+    text-align: center;
+    color: var(--white-color);
+}
+
+footer a {
+    color: var(--white-color);
+}
+
+footer a:hover {
+    color: var(--white-color);
+}
+
+footer .list-inline .list-inline-item {
+    padding: 10px 15px;
+}
+
+.letrita{
+    color: white;
+    font-size: 11px;
+}
+.letrita_1{
+    color: white;
+    font-size: 10px;
+}
+
+
+#camera{
+    width: auto;
+    min-width: auto;
+    height: 23.5rem;
+    min-height: auto;
+    border: 1px solid black;
+    text-align: center;
+}

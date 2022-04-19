@@ -1,0 +1,10 @@
+
+
+@media (min-width: 768px) {
+  .gradient-form {
+    height: 100vh !important;
+  }
+}
+section {
+  background-image: url(/assets/val.jpg) ;
+}

@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'extraccion', component: ExtraccionComponent, canActivate:[AuthGuard] },
   { path: 'extraccion_camara', component: ExtraccionCamaraComponent, canActivate:[AuthGuard]},
   { path: 'tipo_extraccion', component: TipoExtraccionComponent, canActivate:[AuthGuard]},
+  { path: '**', pathMatch: 'full', redirectTo: 'login' }
 ];
 
 @NgModule({

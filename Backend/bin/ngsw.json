@@ -1,0 +1,95 @@
+{
+  "configVersion": 1,
+  "timestamp": 1652416029046,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/main.6828d8b398275910.js",
+        "/manifest.webmanifest",
+        "/polyfills.0ae574311c731179.js",
+        "/runtime.10abe38354e8e4d8.js",
+        "/scripts.4cee7fab4593b89f.js",
+        "/styles.4aefcbdf6c71f233.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/assets/figura.png",
+        "/assets/icon.png",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/login_user.jpg",
+        "/assets/scripts/main.js",
+        "/assets/tecno.jpg",
+        "/assets/val.jpg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/assets/figura.png": "1e54f378043758abe410d98e99ff9676697ae54f",
+    "/assets/icon.png": "8cfe25f4bcfb9f9b2d62d52a5f516c2d6cb47a32",
+    "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/assets/login_user.jpg": "effb1544feffa1af9c3b90841a3c2dd7352ed787",
+    "/assets/scripts/main.js": "642674f40099b06b229364a18d31cfb18ef1a652",
+    "/assets/tecno.jpg": "de89923600ba98ec0313927bd05d3c0657573ddc",
+    "/assets/val.jpg": "ebec47e3c2b31fe0f3ae08fa4e498dd70850e311",
+    "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/index.html": "b4aa93864cbddab1eb1dc57cbc616513691997df",
+    "/main.6828d8b398275910.js": "6b06db2a91b55b8be36a8c438e61dfdf5ae0ac2c",
+    "/manifest.webmanifest": "c5d0548132af01d6f544da7b895962418fcef978",
+    "/polyfills.0ae574311c731179.js": "b097d3a588338d5b8c92779c3f04a8fff4dcb4b4",
+    "/runtime.10abe38354e8e4d8.js": "3a97019c49bf70f28ea58c91f2f91497a049faf1",
+    "/scripts.4cee7fab4593b89f.js": "e3877b131a4cb4d11c961370127fa5f0bde03b80",
+    "/styles.4aefcbdf6c71f233.css": "280ef0bcc96b3f6f4ec1549a7d6e63ef17b994f0"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}

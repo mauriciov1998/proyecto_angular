@@ -1,0 +1,2 @@
+function take_snapshot(){}$(document).ready(function(){document.querySelector("#pdfFile").addEventListener("change",()=>{let t=document.querySelector("#pdfFile").files[0],e=URL.createObjectURL(t);document.querySelector("#vistaPrevia").setAttribute("src",e),document.getElementById("bird-image").setAttribute("src",e)})}),$(document).ready(function(){});
+//# sourceMappingURL=scripts.4cee7fab4593b89f.js.map

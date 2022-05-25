@@ -11,50 +11,50 @@ export class UserserviceService {
   constructor(private http:HttpClient, private router: Router, private jwthelper: JwtHelperService) { }
 
   addUser(datos: any){
-    return this.http.post("http://localhost:3000/usuarios", datos)
+    return this.http.post("http://3.129.86.182:3000/usuarios", datos)
   }
   addcabecera_datos(datos: any){
-    return this.http.post("http://localhost:3000/datos_cabecera", datos)
+    return this.http.post("http://3.129.86.182:3000/datos_cabecera", datos)
   }
   add_linea_cabecera_datos(datos: any){
-    return this.http.post("http://localhost:3000/lineas_datos_cabecera", datos)
+    return this.http.post("http://3.129.86.182:3000/lineas_datos_cabecera", datos)
   }
 
   getUser(){
-    return this.http.get("http://localhost:3000/usuarios")
+    return this.http.get("http://3.129.86.182:3000/usuarios")
   }
   deleteUser(id:number){
-    return this.http.delete(`http://localhost:3000/usuarios/${id}`)
+    return this.http.delete(`http://3.129.86.182:3000/usuarios/${id}`)
   }
   editarUser(id:number, datos:any){
-    return this.http.put(`http://localhost:3000/usuarios/${id}`, datos)
+    return this.http.put(`http://3.129.86.182:3000/usuarios/${id}`, datos)
   }
 
   obtenerUser(id:number){
-    return this.http.get(`http://localhost:3000/usuarios/${id}`)
+    return this.http.get(`http://3.129.86.182:3000/usuarios/${id}`)
   }
   
   login(datos:any){
-    return this.http.post(`http://localhost:3000/login`, datos)
+    return this.http.post(`http://3.129.86.182:3000/login`, datos)
   }
   get_usuario(id:number){
-    return this.http.get(`http://localhost:3000/usuario/${id}`)
+    return this.http.get(`http://3.129.86.182:3000/usuario/${id}`)
   }
   put_usuario(id:number, datos:any){
-    return this.http.put(`http://localhost:3000/usuarios/${id}`,datos)
+    return this.http.put(`http://3.129.86.182:3000/usuarios/${id}`,datos)
   }
 
   obtenerdatosjson_base64(file:any){
     const filename = this.DataURIToBlob(file)
     const formData = new FormData(); 
     formData.append('file', filename);
-    return this.http.post(`http://localhost:3002/api/analyze`,formData)
+    return this.http.post(`http://3.129.86.182:3002/api/analyze`,formData)
     
   }
   obtenerdatosjson(file:any){
     const formData = new FormData(); 
     formData.append("file", file, file.name);
-    return this.http.post(`http://localhost:3002/api/analyze`,formData) 
+    return this.http.post(`http://3.129.86.182:3002/api/analyze`,formData) 
   }
   DataURIToBlob(dataURI: string) {
     const splitDataURI = dataURI.split(',')

@@ -85,6 +85,7 @@ export class ExtraccionComponent implements OnInit, OnChanges, AfterViewInit {
   }
   
   guardar_datos_cabecera(){
+    console.log('eeee',this.valores_cargados)
     if (this.valores_cargados == true){
       this.userservice.addcabecera_datos(this.datos_factura).subscribe((resp:any)=>{
         Swal.fire({

@@ -15,6 +15,9 @@ export class TipoExtraccionComponent implements OnInit {
     this.router.navigate(['extraccion_camara'])
   } 
   ir_reconocimiento_file(){
-    this.router.navigate(['extraccion'])
+    // this.router.navigate(['extraccion'])
+    this.router.navigateByUrl('/extraccion', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['tipo_extraccion']);
+  }); 
   }
 }

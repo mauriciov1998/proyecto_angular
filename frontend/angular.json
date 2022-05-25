@@ -83,7 +83,10 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "frontend:build"
+            "browserTarget": "frontend:build",
+            "ssl": true,
+            "sslCert": "path/cert.crt",
+            "sslKey": "path/cert.key"
           }
         },
         "test": {

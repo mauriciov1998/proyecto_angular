@@ -67,7 +67,7 @@ app.use("/api/analyze", (req, res, next) => {
 async function recognizeForm(file) {
   const endpoint = "https://decimo.cognitiveservices.azure.com/";
   const apiKey = "879c0ddf608b46a9bac0421ee4c8941b";
-  const modelId = "0f074f92-3a48-4454-a855-85b1bdd9cc96";
+  const modelId = "7f464a96-b05f-42bb-962a-c712ef58633b";
   console.log("Entering Forms Recognizer");
 
   let fileStream = fs.createReadStream(file);

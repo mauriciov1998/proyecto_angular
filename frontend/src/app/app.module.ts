@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +49,9 @@ import {MatIconModule} from '@angular/material/icon';
   ],
   providers: [
     {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
     JwtHelperService //permite decodificar y verificar desde el aldo del servidor
+    
   ],
   bootstrap: [AppComponent]
 })
